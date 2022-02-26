@@ -1,0 +1,176 @@
+@import 'reset';
+@import 'base';
+@import 'fonts';
+
+$white: #fff;
+$lightBlue: #dbfcfe;
+$titleColor: rgb(8, 20, 49);
+$descrColor: rgb(160, 160, 160);
+$linkColor: rgb(3, 21, 44);
+
+$primaryFont: 'Barlow', sans-serif;
+$secondaryFont: 'Fraunces', sans-serif;
+
+body {
+    font-size: 18px;
+    font-family: $primaryFont;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.hero {
+    color: $white;
+    height: 800px;
+    background: url('../images/desktop/image-header.jpg') center center/cover no-repeat;
+    &__navbar {
+        width: 1355px;
+        margin: auto;
+        padding: 35px 0px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .navbar__logo {
+            .logo__text {
+                display: block;
+                color: $white;
+                text-decoration: none;
+                font-weight: 900;
+                font-size: 31px;
+                letter-spacing: 3px;
+            }
+        }
+        .menu {
+            display: flex;
+            align-items: center;
+            &__item:not(:last-child) {
+                .menu__link::after {
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                    bottom: -10px;
+                    width: 0;
+                    height: 2px;
+                    border-radius: 100px;
+                    background-color: #fff;
+                    transition: width .2s ease-in;
+                }
+                &:hover .menu__link::after {
+                    width: 100%;
+                }
+            }
+            &__link {
+                text-decoration: none;
+                color: $white;
+                display: block;
+                margin-right: 49px;
+                position: relative;
+                &_active {
+                    background-color: rgba(255,255,255, .3);
+                    padding: 19px 25px;
+                    border-radius: 40px;
+                    color: $lightBlue;
+                    font-family: $secondaryFont;
+                    text-transform: uppercase;
+                    transition: background-color .2s ease-in;
+                    margin-right: 0;
+                    &:hover {
+                        background-color: rgba(255,255,255, .4);
+                    }
+                }
+            }
+        }
+    }
+
+    &__content {
+        text-align: center;
+        font-weight: 900;
+        letter-spacing: 8.4px;
+        font-size: 57px;
+        margin-top: 76px;
+        text-transform: uppercase;
+        font-family: $secondaryFont;
+    }
+
+    &__arrow {
+        margin-top: 102px;
+    }
+}
+
+.about {
+    &__row {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        .about__box {
+            width: 100%;
+            .about__inner {
+                width: 64%;
+                
+                .about__title {
+                    font-size: 58px;
+                    font-family: $secondaryFont;
+                    font-weight: 900;
+                    color: $titleColor;
+                }
+                .about__descr {
+                    margin: 60px 0;
+                    font-size: 28px;
+                    color: $descrColor;
+                }
+                .about__link {
+                    font-size: 24px;
+                    font-weight: 900;
+                    font-family: $secondaryFont;
+                    text-transform: uppercase;
+                    text-decoration: none;
+                    color:$linkColor;
+                    position: relative;
+
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        width: 110%;
+                        height: 5px;
+                        bottom: 0;
+                        left: -5%;
+                        z-index: -1;
+                        border-radius: 40%;
+                        opacity: .4;
+                        transition: transform .2s ease-in;
+                    }
+                    &_yellow {
+                        &::after {
+                            background-color: yellow;
+                        }
+                    }
+                    &_pink {
+                        &::after {
+                            background-color: pink;
+                        }
+                    }
+                    &:hover::after {
+                        transform: translateY(10px);
+                    }
+                }
+            }
+        }
+        &:nth-child(odd) {
+            .about__box {
+                .about__inner {
+                    margin-left: auto;
+                    margin-right: 100px;
+                }
+            }
+        }
+        &:nth-child(even) {
+            .about__box {
+                .about__inner {
+                    margin-left: 100px;
+                    margin-right: auto;
+                }
+            }
+        }
+    }
+}
