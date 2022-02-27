@@ -1,15 +1,10 @@
+@import 'variables';
+
 @import 'reset';
 @import 'base';
 @import 'fonts';
 
-$white: #fff;
-$lightBlue: #dbfcfe;
-$titleColor: rgb(8, 20, 49);
-$descrColor: rgb(160, 160, 160);
-$linkColor: rgb(3, 21, 44);
 
-$primaryFont: 'Barlow', sans-serif;
-$secondaryFont: 'Fraunces', sans-serif;
 
 body {
     font-size: 18px;
@@ -18,6 +13,59 @@ body {
 
 * {
     box-sizing: border-box;
+}
+
+.logo {
+    display: block;
+    color: $white;
+    text-decoration: none;
+    font-weight: 900;
+    font-size: 31px;
+    letter-spacing: 3px;
+    max-width: 168px;
+    &_footer {
+        color: darkGreen;
+        margin: 0 auto 50px;
+    }
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    &__item:not(:last-child) {
+        .menu__link {
+            margin-right: 49px;
+        }
+    }
+    &__link {
+        text-decoration: none;
+        color: #fff;
+        display: block;
+        position: relative;
+        font-weight: 600;
+        &_active {
+            background-color: rgba(255,255,255, .3);
+            padding: 19px 25px;
+            border-radius: 40px;
+            color: $lightBlue;
+            font-family: $secondaryFont;
+            text-transform: uppercase;
+            transition: background-color .2s ease-in;
+            &:hover {
+                background-color: rgba(255,255,255, .4);
+            }
+        }
+    }
+    &_footer {
+        margin: 0 auto auto;
+        text-align: center;
+        width: min-content;
+        .menu {
+            &__link {
+                color: darkGreen;
+            }
+        }
+    }
 }
 
 .hero {
@@ -31,63 +79,13 @@ body {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        .navbar__logo {
-            .logo__text {
-                display: block;
-                color: $white;
-                text-decoration: none;
-                font-weight: 900;
-                font-size: 31px;
-                letter-spacing: 3px;
-            }
-        }
-        .menu {
-            display: flex;
-            align-items: center;
-            &__item:not(:last-child) {
-                .menu__link::after {
-                    content: '';
-                    position: absolute;
-                    left: 0;
-                    bottom: -10px;
-                    width: 0;
-                    height: 2px;
-                    border-radius: 100px;
-                    background-color: #fff;
-                    transition: width .2s ease-in;
-                }
-                &:hover .menu__link::after {
-                    width: 100%;
-                }
-            }
-            &__link {
-                text-decoration: none;
-                color: $white;
-                display: block;
-                margin-right: 49px;
-                position: relative;
-                &_active {
-                    background-color: rgba(255,255,255, .3);
-                    padding: 19px 25px;
-                    border-radius: 40px;
-                    color: $lightBlue;
-                    font-family: $secondaryFont;
-                    text-transform: uppercase;
-                    transition: background-color .2s ease-in;
-                    margin-right: 0;
-                    &:hover {
-                        background-color: rgba(255,255,255, .4);
-                    }
-                }
-            }
-        }
     }
 
     &__content {
         text-align: center;
         font-weight: 900;
         letter-spacing: 8.4px;
-        font-size: 57px;
+        font-size: 58px;
         margin-top: 76px;
         text-transform: uppercase;
         font-family: $secondaryFont;
@@ -109,15 +107,15 @@ body {
                 width: 64%;
                 
                 .about__title {
-                    font-size: 58px;
+                    font-size: 46px;
                     font-family: $secondaryFont;
                     font-weight: 900;
-                    color: $titleColor;
+                    color: $darkBlue;
                 }
                 .about__descr {
                     margin: 60px 0;
-                    font-size: 28px;
-                    color: $descrColor;
+                    font-size: 24px;
+                    color: $lightGrey;
                 }
                 .about__link {
                     font-size: 24px;
@@ -173,4 +171,109 @@ body {
             }
         }
     }
+}
+
+.services {
+    &__row {
+        display: flex;
+    }
+    &__item {
+        width: 100%;
+        position: relative;
+    }
+    &__text {
+        position: absolute;
+        top: 67%;
+        text-align: center;
+        width: 100%;
+        &_green {
+            color: darkGreen;
+        }
+        &_blue {
+            color: $blue;
+        }
+    }
+    &__title {
+        font-family: $secondaryFont;
+        font-size: 28px;
+        font-weight: 900;
+        margin-bottom: 36px;
+    }
+    &__descr {
+        width: 50%;
+        margin: 0 auto;
+        font-weight: 500;
+        line-height: 1.5;
+    }
+}
+
+.testimonials {
+    padding: 172px 0;
+    text-align: center;
+    &__title {
+        font-size: 22px;
+        font-family: $secondaryFont;
+        text-transform: uppercase;
+        font-weight: 900;
+        letter-spacing: 5px;
+        margin-bottom: 85px;
+        color: $lightGrey;
+    }
+    &__row {
+        display: flex;
+        justify-content: center;
+    }
+    &__item {
+        width: 26%;
+        min-height: 360px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 0 30px;
+    }
+    &__img {
+        width: 80px;
+        margin: 0 auto 58px;
+        img {
+            border-radius: 100%;
+        }
+    }
+    &__descr {
+        margin: 0 auto auto;
+        font-weight: 400;
+        line-height: 1.7;
+        font-size: 18px;
+    }
+    &__name {
+        display: block;
+        font-family: $secondaryFont;
+        font-weight: 900;
+        margin-bottom: 15px;
+        font-size: 18px;
+        margin-top: 20px;
+    }
+    &__from {
+        text-transform: capitalize;
+        font-weight: 600;
+        font-size: 14px;
+        color: $darkerBlue;
+    }
+}
+
+.projects {
+    &__row {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.footer {
+    min-height: 380px;
+    background-color: $lightGreen;
+    padding: 75px 30px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
 }
