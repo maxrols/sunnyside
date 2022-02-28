@@ -4,6 +4,8 @@
 @import 'base';
 @import 'fonts';
 
+@import 'queries';
+
 
 
 body {
@@ -26,6 +28,32 @@ body {
     &_footer {
         color: darkGreen;
         margin: 0 auto 50px;
+    }
+
+
+}
+
+.hero {
+    .menu {
+        @include md-max {
+            flex-direction: column;
+            background: #fff;
+            position: absolute;
+            left: 7%;
+            top: 100px;
+            width: 85%;
+            box-shadow: 4px 4px 8px rgba(0,0,0,.3);
+        }
+        .menu__item:not(:last-child) {
+            .menu__link {
+                @include md-max {
+                    margin: 0 0 5px;
+                    padding: 15px;
+                    color: $darkBlue;
+                }
+            }
+        }
+        
     }
 }
 
@@ -79,6 +107,9 @@ body {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        @include xxl-max {
+            width: 90%;
+        }
     }
 
     &__content {
@@ -89,6 +120,9 @@ body {
         margin-top: 76px;
         text-transform: uppercase;
         font-family: $secondaryFont;
+        @include lg-max {
+            font-size: 48px;
+        }
     }
 
     &__arrow {
@@ -101,11 +135,24 @@ body {
         display: flex;
         align-items: center;
         justify-content: flex-end;
+        @include lg-max {
+            flex-direction: column;
+        }
         .about__box {
             width: 100%;
+            &_text {
+                @include lg-max {
+                    order: 1;
+                }
+            }
             .about__inner {
                 width: 64%;
-                
+                padding: 60px;
+                @include lg-max {
+                    width: 100%;
+                    padding: 50px;
+                    text-align: center;
+                }
                 .about__title {
                     font-size: 46px;
                     font-family: $secondaryFont;
@@ -159,6 +206,10 @@ body {
                 .about__inner {
                     margin-left: auto;
                     margin-right: 100px;
+                    @include lg-max {
+                        width: 100%;
+                        margin: 0;
+                    }
                 }
             }
         }
@@ -167,6 +218,10 @@ body {
                 .about__inner {
                     margin-left: 100px;
                     margin-right: auto;
+                    @include lg-max {
+                        width: 100%;
+                        margin: 0;
+                    }
                 }
             }
         }
